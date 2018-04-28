@@ -1,0 +1,11 @@
+<h1>Boosted.exe</h1>
+<form class="loginform">
+	<div id="login-container">	
+		Email:<br>
+	 	<input [(ngModel)]="email" name="email" placeholder="Email"/><br>
+	 	Password:<br>
+	  	<input [(ngModel)]="password" name="password" placeholder="Password"/><br>
+	  	<button class ="btn btn-success" (click)=login()>Login</button>
+	  	<button class ="btn btn-success" (click)=register()>Register</button>
+	</div>
+</form>

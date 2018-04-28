@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -10,4 +12,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(public dialog: MatDialog){}
+
 }
+
