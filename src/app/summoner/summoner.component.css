@@ -1,0 +1,83 @@
+.carousel{
+    background: #2f4357;
+    margin-top: 20px;
+    min-height: 400px; 
+   	max-height:400px;
+}
+.carousel .item{
+    min-height: 280px; 
+   	max-height:280px;
+    margin:0 auto;
+    text-align:center;
+    margin-top:5%;
+}
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
+}
+.bs-example{
+	margin: 20px;
+}
+
+.horizontal{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width:100%;
+}
+
+
+.progress{
+	width:25%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+ul{
+    width:100%;
+    margin-left: 0px;
+    margin-right:0px;
+}
+
+li {
+    float: left;
+}
+
+li div{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li div:hover{
+    background-color: #111;
+    cursor:pointer;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+#login{
+	position:fixed;
+	right:0px;
+}
+
+#userinfo{
+	margin-left:2.5%;
+}
+
+#duopercentage{
+	margin-bottom: 2%;
+}

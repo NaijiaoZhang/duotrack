@@ -1,0 +1,20 @@
+<div id="what">
+	<ul class="horizontal">
+	  <li><a href="./">Boosted.exe</a></li>
+	  <li><a href="./board">Boards</a></li>
+	  <li><a href="https://leagueoflegends.com">News</a></li>
+	  <li *ngIf="afAuth.authState | async as user"><a href="./profile/me">Profile</a></li>
+	  <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
+	  <ng-template #showLogin>
+	  	<li id="login"><a href="./login">Login</a></li>
+	  </ng-template>
+	</ul> 
+<div>
+
+<div *ngIf="data">
+	<div class="profileview">
+		<h2>{{email}}</h2>
+		IGN: {{data.IGN}} <br>
+		Bio: {{data.Bio}}
+	</div>
+</div>

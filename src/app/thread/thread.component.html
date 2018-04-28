@@ -1,0 +1,22 @@
+<div id="what"> 
+	<ul class="horizontal">
+	  <li><a href="./">Boosted.exe</a></li>
+	  <li><a href="./board">Boards</a></li>
+	  <li><a href="https://leagueoflegends.com">News</a></li>
+	  <li *ngIf="afAuth.authState | async as user"><a href="./profile/me">Profile</a></li>
+	  <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
+	  <ng-template #showLogin>
+	  	<li id="login"><a href="./login">Login</a></li>
+	  </ng-template>
+	</ul> 
+<div>
+<h2>{{threadName}}</h2>
+<div *ngIf="afAuth.authState | async as user;" id="boardoptions">
+	<div id="threadcontainer">
+		<textarea id="commentbox" [(ngModel)]="commentText" name="newthread" placeholder="Comment..."></textarea><br>
+		<button class ="btn btn-success" (click)="comment(user.email)">Create</button>
+	</div>
+</div>
+<div class="comment" *ngFor="let comment of commentName; let i = index">
+	<a href="./profile/{{comment}}">{{comment}}</a> : {{commentInfo[i]}}
+</div>

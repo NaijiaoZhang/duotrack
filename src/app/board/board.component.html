@@ -1,0 +1,29 @@
+<div id="what">
+	<ul class="horizontal">
+	  <li><a href="./">Boosted.exe</a></li>
+	  <li><a href="./board">Boards</a></li>
+	  <li><a href="https://leagueoflegends.com">News</a></li>
+	  <li *ngIf="afAuth.authState | async as user"><a href="./profile/me">Profile</a></li>
+	  <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
+	  <ng-template #showLogin>
+	  	<li id="login"><a href="./login">Login</a></li>
+	  </ng-template>
+	</ul> 
+<div>
+<h1>Boosted.exe</h1>
+<div *ngIf="afAuth.authState | async as user;" id="boardoptions">
+	<div id="threadcontainer">
+		<input [(ngModel)]="newThreadName" name="newthread" placeholder="Name of Thread..."/><br>
+		<button class ="btn btn-success" (click)="newThread(user.email)">Create</button>
+	</div>
+</div>
+<div *ngIf="isAdmin==true">
+	<div id="threadcontainer">
+		<input [(ngModel)]="toDelete" name="newthread" placeholder="Delete Thread"/><br>
+		<button class ="btn btn-danger" (click)="deleteThread()">Delete</button>
+	</div>
+</div>
+<h2>Threads</h2>
+<div class="threads" *ngFor="let thread of threadsArray">
+	<a href="./thread/{{thread}}">{{thread}}</a>
+</div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {AngularFireAuth} from 'angularfire2/auth';
+import { AuthService } from '../auth.service';
+
 import * as $ from 'jquery';
 
 @Component({
@@ -9,7 +12,7 @@ import * as $ from 'jquery';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private afAuth: AngularFireAuth,private authService:AuthService) { }
 
   ngOnInit() {
   	let routerRef = this.router; 
@@ -25,6 +28,10 @@ export class HomeComponent implements OnInit {
   	$("#summonersubmit").submit(function(e){
         e.preventDefault();
     });
+  }
+
+  logout(){
+  	this.authService.logout(); 
   }
 
 }

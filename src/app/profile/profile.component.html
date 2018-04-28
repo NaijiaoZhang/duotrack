@@ -1,0 +1,24 @@
+<div id="what">
+	<ul class="horizontal">
+	  <li><a href="./">Boosted.exe</a></li>
+	  <li><a href="./board">Boards</a></li>
+	  <li><a href="https://leagueoflegends.com">News</a></li>
+	  <li *ngIf="afAuth.authState | async as user"><a href="./profile/me">Profile</a></li>
+	  <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
+	  <ng-template #showLogin>
+	  	<li id="login"><a href="./login">Login</a></li>
+	  </ng-template>
+	</ul> 
+<div>
+<div *ngIf="loggedInData;else login">
+	<h2>{{loggedInUser}}</h2>
+	<div class="igncontainer">
+		IGN: <input [(ngModel)]="loggedInData.IGN" name="newthread" placeholder="Name of Thread..."/>
+		<button class ="btn btn-success" (click)="updateIgn()">Update</button>
+	</div>
+	<div class="igncontainer">
+		Bio: <textarea id="commentbox" [(ngModel)]="loggedInData.Bio" name="newthread" placeholder="Comment..."></textarea><br>
+		<button class ="btn btn-success" (click)="updateBio()">Update</button>
+	</div>
+</div>
+<ng-template #login>Please Log In...</ng-template>
